@@ -140,6 +140,61 @@ The distance is shown to be locally bounded by the distance in charts
 (`chartUpperLip_of_edist_le_riemannian`), which is the only metric property used by the
 transplant. It applies both to the intrinsic finite metric and to the auxiliary bounded metric.
 
+## Theorem C
+
+Theorem C is the symbolic construction underlying Theorems A and B. Its statement is
+`FiniteOrderMixing.TheoremC`, and its proof declaration is
+`FiniteOrderMixing.theoremC : TheoremC`, both in
+[`FiniteOrderMixing/TheoremC.lean`](FiniteOrderMixing/TheoremC.lean).
+The conclusions are recorded in `SymbolicProperties R ν`
+([`Statements.lean`](FiniteOrderMixing/Statements.lean)).
+
+For every integer `R ≥ 2`, set `L = 2R + 2`. The theorem gives a full-support,
+shift-invariant Borel probability measure `ν` on `Σ = {-1,1}^ℤ`.
+Writing `Zᵢ(ω) = ωᵢ` and `Sₙ = ∑_{j=0}^{n-1} Zⱼ`, all five conclusions hold
+for this same measure:
+
+* **(i) Symmetric signs and tuplewise independence.** The stationary coordinate
+  process has symmetric `{-1,1}` marginals, and any collection of at most
+  `2R + 1` coordinates with distinct indices is jointly independent.
+* **(ii) Independence of separated windows.** There is a finite constant `K_R`
+  such that, for every `2 ≤ s ≤ R`, the coordinate vectors on `s` ordered,
+  nonempty finite intervals are jointly independent whenever every successive
+  distance exceeds `K_R` times the largest interval cardinality.
+* **(iii) Finite-order exponential mixing.** For every `0 < θ < 1`, the shift
+  is exponentially mixing of every order `2 ≤ s ≤ R` on the symbolic
+  `d_θ`-Lipschitz class `F_θ(Σ)`, encoded by `HolderObs θ`. Varying `θ`
+  covers the Hölder classes used in the paper.
+* **(iv) Moment deficit and no Gaussian subsequential limit.** There are
+  `δ > 0` and `n₀` such that
+  `E_ν[(Sₙ/√n)^L] ≤ (L-1)!! - δ` for all `n ≥ n₀`.
+  No subsequence of `Sₙ/√n` converges in distribution to `N(0,v)` for any
+  `v ≥ 0`, including the degenerate law at `v = 0`.
+* **(v) Failure of higher-order exponential mixing.** There are `c, C > 0`
+  such that, for every sufficiently large integer `N`, some times
+  `0 ≤ n₁ < ··· < n_L < N` have minimum successive gap at least `N/C` and satisfy
+  `-E_ν[∏_{i=1}^L Z_{n_i}] ≥ c N^{-L/2}`.
+  Consequently, exponential mixing of order `L = 2R + 2` fails on `F_θ(Σ)`
+  for every `0 < θ < 1`. This does not assert failure of qualitative mixing
+  at that order.
+
+The proof first constructs the stationary nested-marker law using
+`exists_hierarchyLaw` in [`HierarchyLaw.lean`](FiniteOrderMixing/HierarchyLaw.lean),
+then applies `symbolic_of_hierarchyLaw` in
+[`Symbolic.lean`](FiniteOrderMixing/Symbolic.lean). Thus the hierarchy law is
+constructed, not assumed in the final statement.
+
+The main supporting modules, with paths relative to `FiniteOrderMixing/`, are:
+
+| Modules | Role in Theorem C |
+| --- | --- |
+| `Construction.lean`, `Stationarity.lean`, `Dependence.lean`, `HierarchyLaw.lean` | Nested markers, stationarity and finite-level dependence |
+| `Bias.lean`, `BlockLaws.lean` | Recursive block laws and their negative `L`-point correlations |
+| `Limit.lean`, `Properties.lean` | Limiting measure, full support, shift invariance and tuplewise independence |
+| `Mixing.lean` | Separated-window independence and exponential mixing through order `R` |
+| `Moment.lean` | Moment deficit, exclusion of Gaussian subsequential limits and the higher-order correlation bound |
+| `Symbolic.lean` | Assembly of all five conclusions into `SymbolicProperties` |
+
 The coloring proof establishes the sufficient 2m-dependent, range-m proper
 version used by the construction. Some intermediate constants differ from
 the manuscript without weakening Theorem C's existential conclusions.
