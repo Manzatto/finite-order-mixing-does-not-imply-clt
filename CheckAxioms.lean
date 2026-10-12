@@ -1,0 +1,12 @@
+import FiniteOrderMixing.TheoremA
+import FiniteOrderMixing.TheoremB
+import FiniteOrderMixing.TheoremC
+
+#print axioms FiniteOrderMixing.theoremA
+#print axioms FiniteOrderMixing.theoremB
+#print axioms FiniteOrderMixing.theoremC
+#print axioms FiniteOrderMixing.plane_wandering_deriv_smooth
+#print axioms FiniteOrderMixing.catMap_sq_analyticAnosov
+#print axioms FiniteOrderMixing.catCod_uniformlyHyperbolic
+#print axioms FiniteOrderMixing.theoremB_lipschitz
+#print axioms FiniteOrderMixing.theoremB_metric

@@ -1,0 +1,52 @@
+C-infinity update: smooth physical realisation (Theorem B)
+
+This package contains the complete current project, ready for GitHub.
+Changes below are relative to the previous local distribution in
+output/finite-order-mixing-lean, not a comparison with the live GitHub repository.
+
+Theorem B now includes one C-infinity diffeomorphism for each R >= 2,
+with all six conclusions. Theorems A and C retain their previous statements.
+Lean and Mathlib versions have not changed.
+
+The main statement is TheoremB and its proof is theoremB, matching the
+TheoremA/theoremA and TheoremC/theoremC naming pattern. The smooth result
+is now stated directly in TheoremB. There is no separate theoremB_smooth.
+
+To update through GitHub's website:
+1. Extract the ZIP on your computer.
+2. Upload the files below, preserving the paths and folders shown.
+   Uploading all extracted project files is also fine.
+3. Commit the update. No existing files need deleting for this update.
+
+Do not upload the ZIP as a substitute for the source files. Keep .lake,
+build caches and local tool installations out of the repository.
+
+REPLACE THESE FILES
+CheckAxioms.lean
+FiniteOrderMixing/Realisation.lean
+FiniteOrderMixing/Realisation/Itinerary.lean
+FiniteOrderMixing/Realisation/Physical.lean
+FiniteOrderMixing/Realisation/PlaneDiffeo.lean
+FiniteOrderMixing/Realisation/Surface.lean
+FiniteOrderMixing/Realisation/Transplant.lean
+FiniteOrderMixing/Realisation/TransplantHyp.lean
+FiniteOrderMixing/Realisation/WanderAverage.lean
+FiniteOrderMixing/Realisation/WanderOrbit.lean
+FiniteOrderMixing/TheoremB.lean
+README.md
+SHA256SUMS
+
+ADD THESE FILES
+FiniteOrderMixing/Realisation/SmoothDecay.lean
+FiniteOrderMixing/Realisation/SmoothWandering.lean
+UPDATE_FILES.txt
+paper/smooth-physical-realisation-appendix.pdf
+paper/smooth-physical-realisation-appendix.tex
+
+UNCHANGED VERSION PINS
+lean-toolchain
+lake-manifest.json
+lakefile.toml
+
+Suggested commit title:
+State the smooth physical realisation directly as Theorem B
