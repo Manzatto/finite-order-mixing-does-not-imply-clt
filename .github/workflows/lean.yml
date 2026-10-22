@@ -1,0 +1,19 @@
+name: Lean build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: leanprover/lean-action@v1
+      - name: Check axioms
+        shell: bash
+        run: |
+          lake env lean CheckAxioms.lean | tee axioms.txt
+          ! grep -q sorryAx axioms.txt
+          test "$(grep -c "depends on axioms: \[propext, Classical.choice, Quot.sound\]$" axioms.txt)" -eq 8
