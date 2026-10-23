@@ -1,4 +1,6 @@
-# Finite-order mixing without the CLT — Lean formalization
+# Finite-order exponential mixing does not imply the central limit theorem — Lean formalization
+
+This repository is a complete Lean 4 formalization of the main results of the article Finite-order exponential mixing does not imply the central limit theorem ([https://arxiv.org/abs/2610.17162](https://arxiv.org/abs/2610.17162)).
 
 Each main theorem file contains its statement and proof, in sections named `Statement` and `Proof`.
 The declarations below belong to the namespace `FiniteOrderMixing`:
