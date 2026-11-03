@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.Itinerary
-import FiniteOrderMixing.Realisation.PlanePerturb
+module
+public import FiniteOrderMixing.Realisation.Itinerary
+public import FiniteOrderMixing.Realisation.PlanePerturb
 
 /-!
 # Positions and sizes of the wandering box
@@ -10,6 +11,8 @@ The box of block `k` at step `j` is centred at `(xc k j, yc k j)`, with half-sid
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

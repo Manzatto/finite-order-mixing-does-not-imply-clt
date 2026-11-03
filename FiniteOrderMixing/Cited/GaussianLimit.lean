@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Basic
+module
+public import FiniteOrderMixing.Basic
 
 /-!
 # Moments of a Gaussian weak limit
@@ -13,6 +14,8 @@ If `Y_k ⇒ N(0,v)` with `E Y_k^2 = 1` and `E Y_k^4 ≤ 3`, then `v = 1`, and ev
 
 open MeasureTheory ProbabilityTheory Filter Topology
 open scoped NNReal BoundedContinuousFunction
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

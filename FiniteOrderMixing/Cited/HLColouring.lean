@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Cited.HLProcess
+module
+public import FiniteOrderMixing.Cited.HLProcess
 
 /-!
 # A stationary finitely dependent colouring proper at range `m`
@@ -16,6 +17,8 @@ and the copy of the last residue is shifted), which gives stationarity.
 -/
 
 open MeasureTheory ProbabilityTheory Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing.HL
 

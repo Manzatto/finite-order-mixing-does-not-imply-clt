@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Basic
+module
+public import FiniteOrderMixing.Basic
 
 /-!
 # Uniform averages over finitely many coordinates
@@ -15,6 +16,8 @@ uniform average `avg B F = 2^{-|B|} ∑_{x ∈ {-1,1}^B} F(x)`:
 -/
 
 open Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

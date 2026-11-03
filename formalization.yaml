@@ -1,0 +1,140 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Finite-order exponential mixing does not imply the central limit theorem"
+  description: >-
+    A Lean 4 formalization of Theorems A, B, and C of the paper. It constructs
+    stationary processes with finite-order exponential mixing and no Gaussian
+    subsequential limit, then realizes the phenomenon in analytic and smooth
+    dynamical systems.
+  authors:
+    - "Bernat Bassols Cornudella"
+    - "Matheus M. Castro"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Bernat Bassols Cornudella"
+    - "Matheus M. Castro"
+
+classification:
+  arxiv: ["math.DS", "math.PR"]
+  msc2020: ["37A25", "37D20", "60F05", "60G10"]
+
+sources:
+  - title: "Finite-order exponential mixing does not imply the central limit theorem"
+    authors:
+      - "Bernat Bassols Cornudella"
+      - "Matheus M. Castro"
+    id: "arXiv:2610.17162"
+    type: "article"
+    location: "https://arxiv.org/abs/2610.17162"
+    relationship: "formalizes"
+    license: "CC BY-NC-ND 4.0"
+    author_endorsement: "participated"
+
+related_formalizations: []
+
+status:
+  scope: >-
+    The formalization proves Theorems A, B, and C as described in the cited
+    paper. Theorem C gives the stationary symbolic construction and its five
+    conclusions. Theorem A gives the analytic Anosov torus realization.
+    Theorem B gives the smooth physical realization on compact smooth surfaces,
+    including disconnected surfaces. The general perturbation theorem near an
+    arbitrary given map described in the paper is not formalized. See the
+    project README for the precise statements, constructions, and qualifications.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms:
+    - "propext"
+    - "Classical.choice"
+    - "Quot.sound"
+  main_results:
+    - declaration: "FiniteOrderMixing.theoremA"
+      file: "FiniteOrderMixing/TheoremA.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "FiniteOrderMixing.theoremB"
+      file: "FiniteOrderMixing/TheoremB.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "FiniteOrderMixing.theoremC"
+      file: "FiniteOrderMixing/TheoremC.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+
+automation:
+  methods:
+    - method: "other"
+      models:
+        - "OpenAI ChatGPT 6.0 (Astra)"
+      framework: "OpenAI ChatGPT"
+      tool_setup: >-
+        The paper reports use as a research assistant and AI assistance in
+        developing and revising the Lean formalization. Lean's kernel checks
+        the resulting proofs.
+      cost:
+        wall_time: "not reported"
+        spend_usd: "not tracked"
+        hardware: "not reported"
+      prompting_notes: "not reported"
+    - method: "agent"
+      models: []
+      framework: "Copilot SDK in VS Code"
+      tool_setup: >-
+        Used for Palomar submission packaging and statement wrappers; it did
+        not author or alter the existing proof terms.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local machine"
+      prompting_notes: "Assisted with registry preparation, not proof development."
+  spend_usd: "not tracked"
+  notes: >-
+    The paper discloses the ChatGPT use above and states that the authors take
+    full responsibility for the mathematical statements and proofs. This
+    assistant's contribution is limited to registry packaging and metadata.
+
+fidelity:
+  divergences: >-
+    Theorem B formalizes the smooth surface realization described in the
+    README, not the paper's general arbitrary-small-perturbation theorem. Other
+    construction details and qualifications are documented in the README.
+
+review:
+  status: "self-assessed"
+  reviewers:
+    - "none reported"
+  notes: >-
+    The paper states that the authors take full responsibility for correctness.
+    Lean kernel checking and the axiom audit are documented in the README. No
+    independent mathematical review is reported.
+
+alignment:
+  namespace: "FiniteOrderMixing"
+  statements:
+    - source: "Theorem A"
+      lean: "FiniteOrderMixing.theoremA"
+      module: "FiniteOrderMixing.TheoremA"
+      status: "proved"
+      note: "Analytic Anosov torus realization."
+    - source: "Theorem B"
+      lean: "FiniteOrderMixing.theoremB"
+      module: "FiniteOrderMixing.TheoremB"
+      status: "proved"
+      note: "Smooth physical realization on compact smooth surfaces."
+    - source: "Theorem C"
+      lean: "FiniteOrderMixing.theoremC"
+      module: "FiniteOrderMixing.TheoremC"
+      status: "proved"
+      note: "Stationary symbolic construction with all five stated properties."
+
+acknowledgements: >-
+  Lean 4 and Mathlib. The auxiliary results from the literature and their
+  formalizations are documented in FiniteOrderMixing/Cited/.

@@ -1,6 +1,7 @@
-import FiniteOrderMixing.Realisation.Generic
-import FiniteOrderMixing.Realisation.Transplant
-import FiniteOrderMixing.TheoremC
+module
+public import FiniteOrderMixing.Realisation.Generic
+public import FiniteOrderMixing.Realisation.Transplant
+public import FiniteOrderMixing.TheoremC
 
 /-!
 # Theorem B: realisation with a physical measure on a compact surface
@@ -13,6 +14,8 @@ import FiniteOrderMixing.TheoremC
 -/
 
 open MeasureTheory ProbabilityTheory Filter Topology Manifold
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

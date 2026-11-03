@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Selection
+module
+public import FiniteOrderMixing.Selection
 
 /-!
 # Construction of the nested marker sets (Section `sec:geometry`)
@@ -14,6 +15,8 @@ measurability of the construction.
 -/
 
 open MeasureTheory ProbabilityTheory Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

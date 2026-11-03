@@ -1,5 +1,7 @@
-import FiniteOrderMixing.Realisation.Torus
-import FiniteOrderMixing.TheoremC
+module
+public import FiniteOrderMixing.Realisation.Torus
+public import FiniteOrderMixing.TheoremC
+public import FiniteOrderMixing.StatementA
 
 /-!
 # Theorem A: linear Anosov realisation
@@ -11,19 +13,9 @@ import FiniteOrderMixing.TheoremC
 open MeasureTheory ProbabilityTheory Filter Topology
 open scoped NNReal
 
+@[expose] public section
+
 namespace FiniteOrderMixing
-
-/-! ## Statement -/
-
-/-- **Theorem `thm:analytic`** (linear Anosov realisation).  There are `k₀ ≥ 2`, a two-symbol
-horseshoe `Λ` of `T = A^{k₀}` and a smooth `f₀` such that, for every `R ≥ 2`, some invariant
-probability measure `μ` has all the properties of Theorem A. -/
-def TheoremA : Prop :=
-  ∃ k₀ : ℕ, 2 ≤ k₀ ∧ IsAnalyticAnosovTorus (catMap ^ k₀) ∧
-    ∃ Λ : Set Torus, IsTwoSymbolHorseshoe ⇑(catMap ^ k₀ : Equiv.Perm Torus) Λ ∧
-    IsUniformlyHyperbolicTorus (catMap ^ k₀) Λ ∧
-    ∃ f₀ : Torus → ℝ, ContDiff ℝ (⊤ : ℕ∞) (torusLift f₀) ∧
-      ∀ R : ℕ, 2 ≤ R → ∃ μ : Measure Torus, TorusRealisation k₀ Λ f₀ R μ
 
 /-! ## Proof -/
 

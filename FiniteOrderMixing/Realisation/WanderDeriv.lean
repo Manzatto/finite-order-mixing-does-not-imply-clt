@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.WanderAverage
+module
+public import FiniteOrderMixing.Realisation.WanderAverage
 
 /-!
 # The derivative of the planar horseshoe
@@ -9,6 +10,8 @@ Near every point of the horseshoe, the perturbed map `T` is affine with derivati
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

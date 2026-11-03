@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.Robust
-import FiniteOrderMixing.Realisation.CatAnosov
+module
+public import FiniteOrderMixing.Realisation.Robust
+public import FiniteOrderMixing.Realisation.CatAnosov
 
 /-!
 # Auxiliary results for the torus realisation
@@ -11,6 +12,8 @@ The main statement and proof are in `FiniteOrderMixing/TheoremA.lean`.
 
 open MeasureTheory ProbabilityTheory Filter Topology
 open scoped NNReal
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

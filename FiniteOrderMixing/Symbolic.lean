@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Moment
-import FiniteOrderMixing.Statements
+module
+public import FiniteOrderMixing.Moment
+public import FiniteOrderMixing.Statements
 
 /-!
 # Proof of Theorem `thm:symbolic` from Proposition `prop:hierarchy`
@@ -11,6 +12,8 @@ Section `sec:limit` from any law of the nested marker sets with properties `(H1)
 
 open MeasureTheory ProbabilityTheory
 open scoped Nat
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

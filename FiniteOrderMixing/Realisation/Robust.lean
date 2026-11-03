@@ -1,6 +1,7 @@
-import FiniteOrderMixing.Realisation.Variance
-import FiniteOrderMixing.Cited.GaussianLimit
-import FiniteOrderMixing.Cited.GaussianMoment
+module
+public import FiniteOrderMixing.Realisation.Variance
+public import FiniteOrderMixing.Cited.GaussianLimit
+public import FiniteOrderMixing.Cited.GaussianMoment
 
 /-!
 # Stability of the failure of the CLT (Proposition `prop:robustness`)
@@ -20,6 +21,8 @@ available, which we use instead:
 
 open MeasureTheory ProbabilityTheory Filter Topology
 open scoped NNReal Nat BoundedContinuousFunction
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

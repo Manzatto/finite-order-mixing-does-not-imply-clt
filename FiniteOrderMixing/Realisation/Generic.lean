@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.Robust
-import FiniteOrderMixing.Mixing
+module
+public import FiniteOrderMixing.Realisation.Robust
+public import FiniteOrderMixing.Mixing
 
 /-!
 # Generic points of the symbolic measure
@@ -17,6 +18,8 @@ such a point from Birkhoff's ergodic theorem and the ergodicity of `ν` (Corolla
 -/
 
 open MeasureTheory ProbabilityTheory Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

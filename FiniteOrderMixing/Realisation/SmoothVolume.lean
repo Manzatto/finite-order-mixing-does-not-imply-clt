@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.Defs
+module
+public import FiniteOrderMixing.Realisation.Defs
 
 /-!
 # Smooth volumes
@@ -10,6 +11,8 @@ sets (`IsSmoothVolume.isOpenPosMeasure`), which is the only property of `m` used
 
 open Set Filter Topology Manifold MeasureTheory
 open scoped ContDiff
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

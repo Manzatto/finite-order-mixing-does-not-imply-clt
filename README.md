@@ -2,14 +2,14 @@
 
 This repository provides a complete Lean 4 formalization of the main results of the article *Finite-order exponential mixing does not imply the central limit theorem* ([https://arxiv.org/abs/2610.17162](https://arxiv.org/abs/2610.17162)).
 
-Each main theorem file contains its statement and proof, in sections named `Statement` and `Proof`.
-The declarations below belong to the namespace `FiniteOrderMixing`:
+Each statement module isolates a main result from its proof module. The declarations belong to
+the namespace `FiniteOrderMixing`:
 
-| Paper | Main file | Statement | Proof |
-| --- | --- | --- | --- |
-| Theorem A | `FiniteOrderMixing/TheoremA.lean` | `TheoremA` | `theoremA` |
-| Theorem B | `FiniteOrderMixing/TheoremB.lean` | `TheoremB` | `theoremB` |
-| Theorem C | `FiniteOrderMixing/TheoremC.lean` | `TheoremC` | `theoremC` |
+| Paper | Statement file | Proof module |
+| --- | --- | --- |
+| Theorem A | `FiniteOrderMixing/StatementA.lean` (`TheoremA`) | `FiniteOrderMixing/TheoremA.lean` (`theoremA`) |
+| Theorem B | `FiniteOrderMixing/StatementB.lean` (`TheoremB`) | `FiniteOrderMixing/TheoremB.lean` (`theoremB`) |
+| Theorem C | `FiniteOrderMixing/StatementC.lean` (`TheoremC`) | `FiniteOrderMixing/TheoremC.lean` (`theoremC`) |
 
 The supporting modules contain the constructions and shared vocabulary. Symbolic properties
 are in `Statements.lean`, and the stationary hierarchy law is constructed in `HierarchyLaw.lean`.
@@ -56,12 +56,34 @@ results have proofs in this package. There are no project axioms.
 The result covers Theorem C, including exclusion of centered Gaussian
 subsequential limits N(0,v) for every v >= 0.
 
+## Palomar Registry submission
+
+`Challenge.lean`, `Solution.lean`, and `comparator.json` package Theorems A, B, and C as one
+Comparator entry. `formalization.yaml` records the source, scope, authorship, automation, and
+review status. The formalization's code is licensed under Apache-2.0. The included manuscript PDF
+is separately licensed under CC BY-NC-ND 4.0; the repository's Apache-2.0 license does not apply
+to the PDF.
+
+The local wrapper modules can be checked with:
+
+```sh
+lake env lean Challenge.lean
+lake env lean Solution.lean
+```
+
+The GitHub Actions workflow `Palomar preflight` runs Palomar's full mechanical preflight for an
+entered commit SHA. A local `lake build` is necessary but does not replace that preflight. A
+successful preflight is not a submission or registration; the review must be requested separately,
+and registration requires a separate explicit decision after the review is presented.
+
 ## Theorems A and B
 
-The main dynamical statement and proof files are `TheoremA.lean` and `TheoremB.lean` in
-`FiniteOrderMixing/`; their supporting files are in `FiniteOrderMixing/Realisation/`. Theorem A is
-`FiniteOrderMixing.theoremA : TheoremA`, with both declarations in `TheoremA.lean`.
-Theorem B is `FiniteOrderMixing.theoremB : TheoremB` (`TheoremB.lean`),
+The main dynamical statement files are `StatementA.lean` and `StatementB.lean`; their proof files
+are `TheoremA.lean` and `TheoremB.lean` in `FiniteOrderMixing/`. Supporting files are in
+`FiniteOrderMixing/Realisation/`. Theorem A is `FiniteOrderMixing.theoremA : TheoremA`, with the
+statement in `StatementA.lean` and proof in `TheoremA.lean`. Theorem B is
+`FiniteOrderMixing.theoremB : TheoremB`, with the statement in `StatementB.lean` and proof in
+`TheoremB.lean`,
 with a `C^∞` diffeomorphism as in the paper. The earlier auxiliary variant
 `FiniteOrderMixing.theoremB_lipschitz` (`Realisation/Surface.lean`) is stated for Lipschitz observables
 and a chart-Lipschitz metric.
@@ -145,8 +167,9 @@ transplant. It applies both to the intrinsic finite metric and to the auxiliary 
 ## Theorem C
 
 Theorem C is the symbolic construction underlying Theorems A and B. Its statement is
-`FiniteOrderMixing.TheoremC`, and its proof declaration is
-`FiniteOrderMixing.theoremC : TheoremC`, both in
+`FiniteOrderMixing.TheoremC` in
+[`FiniteOrderMixing/StatementC.lean`](FiniteOrderMixing/StatementC.lean), and its proof declaration
+is `FiniteOrderMixing.theoremC : TheoremC` in
 [`FiniteOrderMixing/TheoremC.lean`](FiniteOrderMixing/TheoremC.lean).
 The conclusions are recorded in `SymbolicProperties R ν`
 ([`Statements.lean`](FiniteOrderMixing/Statements.lean)).

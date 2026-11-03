@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Limit
+module
+public import FiniteOrderMixing.Limit
 
 /-!
 # Properties of `ν` (Proposition `prop:limit` (ii)–(iii))
@@ -13,6 +14,8 @@ import FiniteOrderMixing.Limit
 
 open MeasureTheory ProbabilityTheory Finset Filter
 open scoped ENNReal
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

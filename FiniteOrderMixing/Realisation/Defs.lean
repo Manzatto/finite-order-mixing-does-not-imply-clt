@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Statements
-import FiniteOrderMixing.Realisation.TorusGeometry
+module
+public import FiniteOrderMixing.Statements
+public import FiniteOrderMixing.Realisation.TorusGeometry
 
 /-!
 # Shared definitions for dynamical realisations
@@ -26,6 +27,8 @@ are in `FiniteOrderMixing/TheoremA.lean` and `FiniteOrderMixing/TheoremB.lean`.
 -/
 
 open MeasureTheory ProbabilityTheory Filter Topology Manifold
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

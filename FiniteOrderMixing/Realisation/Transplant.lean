@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.WanderAverage
-import FiniteOrderMixing.Realisation.Defs
+module
+public import FiniteOrderMixing.Realisation.WanderAverage
+public import FiniteOrderMixing.Realisation.Defs
 
 /-!
 # Transplanting the planar model into a surface
@@ -12,6 +13,8 @@ strong pluripotency (Kiriki–Li–Nakano–Soma–Vargas) used in the proof of 
 -/
 
 open Set Filter Topology Manifold
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

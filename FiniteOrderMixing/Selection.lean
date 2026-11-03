@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Limit
+module
+public import FiniteOrderMixing.Limit
 
 /-!
 # The marker selection rule (Section `subsec:markers`, deterministic part)
@@ -18,6 +19,8 @@ Main results:
 -/
 
 open Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

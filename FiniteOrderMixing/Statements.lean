@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Basic
+module
+public import FiniteOrderMixing.Basic
 
 /-!
 # Properties of the symbolic process
@@ -19,6 +20,8 @@ The main statement `TheoremC` and its proof `theoremC` are in `TheoremC.lean`.
 
 open MeasureTheory ProbabilityTheory Filter Topology
 open scoped ENNReal NNReal Nat BoundedContinuousFunction
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.WanderOrbit
+module
+public import FiniteOrderMixing.Realisation.WanderOrbit
 
 /-!
 # Time averages along the wandering box
@@ -12,6 +13,8 @@ The main result is `plane_wandering`, the planar form of strong pluripotency use
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

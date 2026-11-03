@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.PlaneDigits
-import FiniteOrderMixing.Realisation.SmoothDecay
+module
+public import FiniteOrderMixing.Realisation.PlaneDigits
+public import FiniteOrderMixing.Realisation.SmoothDecay
 
 /-!
 # The itinerary of the wandering box
@@ -13,6 +14,8 @@ zero, while the square-root part makes the perturbations smooth in every finite 
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

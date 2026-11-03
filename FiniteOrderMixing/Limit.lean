@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Locality
+module
+public import FiniteOrderMixing.Locality
 
 /-!
 # The stationary limiting process (Proposition `prop:limit`)
@@ -15,6 +16,8 @@ coordinates as `∫ Eh L h ℓ W G dP(h)` at any sufficiently high level `ℓ`.
 
 open MeasureTheory ProbabilityTheory Finset
 open scoped ENNReal
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.WanderDeriv
+module
+public import FiniteOrderMixing.Realisation.WanderDeriv
 
 /-!
 # A smooth physical realisation
@@ -10,6 +11,8 @@ coding, hyperbolic derivatives and open wandering box as the finite-order constr
 
 open Set Filter Topology
 open scoped ContDiff
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

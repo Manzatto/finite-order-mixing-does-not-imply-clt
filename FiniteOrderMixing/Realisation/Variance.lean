@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.Transfer
+module
+public import FiniteOrderMixing.Realisation.Transfer
 
 /-!
 # Second moments of Birkhoff sums (Lemma `lem:variance`) and a law of large numbers
@@ -11,6 +12,8 @@ import FiniteOrderMixing.Realisation.Transfer
 -/
 
 open MeasureTheory ProbabilityTheory Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

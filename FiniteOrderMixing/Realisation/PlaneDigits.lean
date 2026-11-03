@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.PlaneModel
-import FiniteOrderMixing.Realisation.CatHorseshoe
+module
+public import FiniteOrderMixing.Realisation.PlaneModel
+public import FiniteOrderMixing.Realisation.CatHorseshoe
 
 /-!
 # Ternary digits and the coding of the planar horseshoe
@@ -10,6 +11,8 @@ middle-thirds horseshoe.
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Basic
+module
+public import FiniteOrderMixing.Basic
 
 /-!
 # Diffeomorphisms of the plane
@@ -15,6 +16,8 @@ planar model of Theorem B:
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

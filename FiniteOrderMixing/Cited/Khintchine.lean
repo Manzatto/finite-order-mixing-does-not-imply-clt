@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Avg
+module
+public import FiniteOrderMixing.Avg
 
 /-!
 # Khintchine's inequality for even moments with the Gaussian constant
@@ -13,6 +14,8 @@ odd powers of `x`, `E(xξ + X)^{2q} = ∑_k C(2q,2k) x^{2k} E X^{2(q-k)}`, and t
 
 open Finset
 open scoped Nat
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

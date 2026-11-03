@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Construction
+module
+public import FiniteOrderMixing.Construction
 
 /-!
 # Stationarity of the nested marker sets (Lemma `lem:stationarity-geometry`)
@@ -11,6 +12,8 @@ independence of the colourings), and `Mh ∘ tau = shiftH m ∘ Mh`.
 -/
 
 open MeasureTheory ProbabilityTheory Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

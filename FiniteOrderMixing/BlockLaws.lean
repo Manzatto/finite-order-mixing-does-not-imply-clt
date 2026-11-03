@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Hierarchy
+module
+public import FiniteOrderMixing.Hierarchy
 
 /-!
 # The recursive block laws (Section `sec:block-laws`)
@@ -22,6 +23,8 @@ Main results:
 -/
 
 open Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

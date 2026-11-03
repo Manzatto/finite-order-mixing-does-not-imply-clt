@@ -1,6 +1,7 @@
-import FiniteOrderMixing.Realisation.Transplant
-import FiniteOrderMixing.Realisation.SmoothWandering
-import FiniteOrderMixing.Realisation.Hyperbolic
+module
+public import FiniteOrderMixing.Realisation.Transplant
+public import FiniteOrderMixing.Realisation.SmoothWandering
+public import FiniteOrderMixing.Realisation.Hyperbolic
 
 /-!
 # The transplanted horseshoe is uniformly hyperbolic
@@ -11,6 +12,8 @@ Riemannian norm, so the horseshoe is uniformly hyperbolic (`isHyperbolicSet_lift
 -/
 
 open Set Filter Topology Manifold Bundle
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

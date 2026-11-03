@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Properties
+module
+public import FiniteOrderMixing.Properties
 
 /-!
 # Finite-window independence and exponential mixing (Section `sec:correlations`)
@@ -11,6 +12,8 @@ import FiniteOrderMixing.Properties
 
 open MeasureTheory ProbabilityTheory Finset Filter
 open scoped ENNReal
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

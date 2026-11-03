@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.WanderBox
+module
+public import FiniteOrderMixing.Realisation.WanderBox
 
 /-!
 # The perturbed horseshoe and the orbit of the wandering box
@@ -9,6 +10,8 @@ translations `e_k` at the exits `ctr k`.  Every point of the initial box visits 
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

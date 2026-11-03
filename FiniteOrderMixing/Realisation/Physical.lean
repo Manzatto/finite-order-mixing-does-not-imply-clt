@@ -1,7 +1,8 @@
-import FiniteOrderMixing.Realisation.Surface
-import FiniteOrderMixing.Realisation.TransplantHyp
-import FiniteOrderMixing.Realisation.SmoothVolume
-import FiniteOrderMixing.Realisation.BoundedRiemann
+module
+public import FiniteOrderMixing.Realisation.Surface
+public import FiniteOrderMixing.Realisation.TransplantHyp
+public import FiniteOrderMixing.Realisation.SmoothVolume
+public import FiniteOrderMixing.Realisation.BoundedRiemann
 
 /-!
 # Properties and auxiliary results for the physical realisation
@@ -20,6 +21,8 @@ The main statement `TheoremB` and its proof `theoremB` are in `TheoremB.lean`.
 
 open MeasureTheory ProbabilityTheory Filter Topology Manifold Bundle
 open scoped ContDiff
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

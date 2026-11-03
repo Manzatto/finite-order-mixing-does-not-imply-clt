@@ -1,4 +1,5 @@
-import FiniteOrderMixing.LevelExp
+module
+public import FiniteOrderMixing.LevelExp
 
 /-!
 # Translation equivariance and locality of the block data
@@ -11,6 +12,8 @@ import FiniteOrderMixing.LevelExp
 -/
 
 open Finset MeasureTheory
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

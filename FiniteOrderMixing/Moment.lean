@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Mixing
+module
+public import FiniteOrderMixing.Mixing
 
 /-!
 # Failure of the CLT and of higher-order exponential mixing (Section `sec:moment`)
@@ -14,6 +15,8 @@ Throughout, `L = 2m` is even and `L ≥ 6`.
 
 open MeasureTheory ProbabilityTheory Finset Filter
 open scoped ENNReal Nat
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

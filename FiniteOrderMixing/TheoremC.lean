@@ -1,5 +1,7 @@
-import FiniteOrderMixing.HierarchyLaw
-import FiniteOrderMixing.Symbolic
+module
+public import FiniteOrderMixing.HierarchyLaw
+public import FiniteOrderMixing.Symbolic
+public import FiniteOrderMixing.StatementC
 
 /-!
 # Theorem C: symbolic realisation
@@ -10,13 +12,9 @@ import FiniteOrderMixing.Symbolic
 
 open MeasureTheory ProbabilityTheory
 
+@[expose] public section
+
 namespace FiniteOrderMixing
-
-/-! ## Statement -/
-
-/-- **Theorem `thm:symbolic`** (symbolic realisation). -/
-def TheoremC : Prop :=
-  ∀ R : ℕ, 2 ≤ R → ∃ ν : Measure Config, SymbolicProperties R ν
 
 /-! ## Proof -/
 

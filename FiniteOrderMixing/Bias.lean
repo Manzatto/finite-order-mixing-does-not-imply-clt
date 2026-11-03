@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Cited
+module
+public import FiniteOrderMixing.Cited
 
 /-!
 # The finite-dimensional biasing lemma (Lemma `lem:bias`)
@@ -15,6 +16,8 @@ character moments `E_ρ[χ_J]`, `1 ≤ |J| ≤ 4`), there is an odd `ψ` with va
 
 open Finset
 open scoped symmDiff Nat
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

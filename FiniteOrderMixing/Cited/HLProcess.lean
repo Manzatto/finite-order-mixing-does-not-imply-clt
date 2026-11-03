@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Cited.HLWord
-import FiniteOrderMixing.Cited.Kolmogorov
+module
+public import FiniteOrderMixing.Cited.HLWord
+public import FiniteOrderMixing.Cited.Kolmogorov
 
 /-!
 # The Holroyd–Liggett one-dependent four-colouring of `ℤ`
@@ -11,6 +12,8 @@ probabilities factorise over sets at distance at least two.
 -/
 
 open MeasureTheory Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing.HL
 

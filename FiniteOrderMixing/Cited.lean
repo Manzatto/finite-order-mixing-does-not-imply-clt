@@ -1,10 +1,11 @@
-import FiniteOrderMixing.Cited.Kolmogorov
-import FiniteOrderMixing.Cited.Khintchine
-import FiniteOrderMixing.Cited.GaussianMoment
-import FiniteOrderMixing.Cited.GaussianLimit
-import FiniteOrderMixing.Cited.HLWord
-import FiniteOrderMixing.Cited.HLProcess
-import FiniteOrderMixing.Cited.HLColouring
+module
+public import FiniteOrderMixing.Cited.Kolmogorov
+public import FiniteOrderMixing.Cited.Khintchine
+public import FiniteOrderMixing.Cited.GaussianMoment
+public import FiniteOrderMixing.Cited.GaussianLimit
+public import FiniteOrderMixing.Cited.HLWord
+public import FiniteOrderMixing.Cited.HLProcess
+public import FiniteOrderMixing.Cited.HLColouring
 
 /-!
 # Results cited by the paper

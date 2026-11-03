@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.RiemannC1
+module
+public import FiniteOrderMixing.Realisation.RiemannC1
 
 /-!
 # An auxiliary metric on a possibly disconnected Riemannian manifold
@@ -11,6 +12,8 @@ The Riemannian norms on tangent spaces are unchanged.
 
 open Set Filter Topology Manifold MeasureTheory Bundle
 open scoped ENNReal ContDiff
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

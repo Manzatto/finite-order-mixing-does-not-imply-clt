@@ -1,4 +1,5 @@
-import FiniteOrderMixing.BlockLaws
+module
+public import FiniteOrderMixing.BlockLaws
 
 /-!
 # Finite-level laws and stabilisation (Section `sec:limit`, first part)
@@ -21,6 +22,8 @@ Main results:
 -/
 
 open Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

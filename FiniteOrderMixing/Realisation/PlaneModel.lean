@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.PlaneDiffeo
+module
+public import FiniteOrderMixing.Realisation.PlaneDiffeo
 
 /-!
 # The planar horseshoe model
@@ -17,6 +18,8 @@ horizontal expansions.
 -/
 
 open Set
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

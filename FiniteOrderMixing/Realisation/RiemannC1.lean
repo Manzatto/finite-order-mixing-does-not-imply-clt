@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.Defs
+module
+public import FiniteOrderMixing.Realisation.Defs
 
 /-!
 # The `C¹` norm on a Riemannian manifold
@@ -15,6 +16,8 @@ norms on the tangent spaces.
 
 open Set Filter Topology Manifold MeasureTheory Bundle
 open scoped ENNReal ContDiff
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

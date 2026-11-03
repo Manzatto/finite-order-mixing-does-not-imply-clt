@@ -1,33 +1,34 @@
-import FiniteOrderMixing.Realisation.TorusGeometry
-import FiniteOrderMixing.Realisation.Defs
-import FiniteOrderMixing.Realisation.Transfer
-import FiniteOrderMixing.Realisation.Variance
-import FiniteOrderMixing.Realisation.Robust
-import FiniteOrderMixing.Realisation.Generic
-import FiniteOrderMixing.Realisation.CatHorseshoe
-import FiniteOrderMixing.Realisation.CatAnosov
-import FiniteOrderMixing.Realisation.Torus
-import FiniteOrderMixing.TheoremA
-import FiniteOrderMixing.Realisation.PlaneDiffeo
-import FiniteOrderMixing.Realisation.PlaneModel
-import FiniteOrderMixing.Realisation.PlaneDigits
-import FiniteOrderMixing.Realisation.PlanePerturb
-import FiniteOrderMixing.Realisation.Itinerary
-import FiniteOrderMixing.Realisation.WanderBox
-import FiniteOrderMixing.Realisation.WanderOrbit
-import FiniteOrderMixing.Realisation.WanderAverage
-import FiniteOrderMixing.Realisation.Transplant
-import FiniteOrderMixing.Realisation.Surface
-import FiniteOrderMixing.Realisation.RiemannC1
-import FiniteOrderMixing.Realisation.WanderDeriv
-import FiniteOrderMixing.Realisation.SmoothDecay
-import FiniteOrderMixing.Realisation.SmoothWandering
-import FiniteOrderMixing.Realisation.Hyperbolic
-import FiniteOrderMixing.Realisation.TransplantHyp
-import FiniteOrderMixing.Realisation.SmoothVolume
-import FiniteOrderMixing.Realisation.BoundedRiemann
-import FiniteOrderMixing.Realisation.Physical
-import FiniteOrderMixing.TheoremB
+module
+public import FiniteOrderMixing.Realisation.TorusGeometry
+public import FiniteOrderMixing.Realisation.Defs
+public import FiniteOrderMixing.Realisation.Transfer
+public import FiniteOrderMixing.Realisation.Variance
+public import FiniteOrderMixing.Realisation.Robust
+public import FiniteOrderMixing.Realisation.Generic
+public import FiniteOrderMixing.Realisation.CatHorseshoe
+public import FiniteOrderMixing.Realisation.CatAnosov
+public import FiniteOrderMixing.Realisation.Torus
+public import FiniteOrderMixing.TheoremA
+public import FiniteOrderMixing.Realisation.PlaneDiffeo
+public import FiniteOrderMixing.Realisation.PlaneModel
+public import FiniteOrderMixing.Realisation.PlaneDigits
+public import FiniteOrderMixing.Realisation.PlanePerturb
+public import FiniteOrderMixing.Realisation.Itinerary
+public import FiniteOrderMixing.Realisation.WanderBox
+public import FiniteOrderMixing.Realisation.WanderOrbit
+public import FiniteOrderMixing.Realisation.WanderAverage
+public import FiniteOrderMixing.Realisation.Transplant
+public import FiniteOrderMixing.Realisation.Surface
+public import FiniteOrderMixing.Realisation.RiemannC1
+public import FiniteOrderMixing.Realisation.WanderDeriv
+public import FiniteOrderMixing.Realisation.SmoothDecay
+public import FiniteOrderMixing.Realisation.SmoothWandering
+public import FiniteOrderMixing.Realisation.Hyperbolic
+public import FiniteOrderMixing.Realisation.TransplantHyp
+public import FiniteOrderMixing.Realisation.SmoothVolume
+public import FiniteOrderMixing.Realisation.BoundedRiemann
+public import FiniteOrderMixing.Realisation.Physical
+public import FiniteOrderMixing.TheoremB
 
 /-!
 # Part I: dynamical realisations (Theorems A and B)

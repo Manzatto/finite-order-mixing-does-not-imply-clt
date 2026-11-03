@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Dependence
-import FiniteOrderMixing.Symbolic
+module
+public import FiniteOrderMixing.Dependence
+public import FiniteOrderMixing.Symbolic
 
 /-!
 # Construction of the stationary hierarchy law
@@ -9,6 +10,8 @@ from the finitely dependent colouring. The main symbolic theorem is in `TheoremC
 -/
 
 open MeasureTheory ProbabilityTheory Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

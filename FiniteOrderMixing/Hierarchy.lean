@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Bias
+module
+public import FiniteOrderMixing.Bias
 
 /-!
 # Nested marker sets and their block partitions (deterministic part of Section `sec:geometry`)
@@ -19,6 +20,8 @@ marker indicators for every `h`, good or not.
 -/
 
 open Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

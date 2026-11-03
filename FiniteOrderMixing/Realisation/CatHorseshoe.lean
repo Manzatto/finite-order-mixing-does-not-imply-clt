@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.Defs
+module
+public import FiniteOrderMixing.Realisation.Defs
 
 /-!
 # A two-symbol horseshoe for the square of the cat map (Lemma `lem:fixed-horseshoe`)
@@ -21,6 +22,8 @@ hyperbolic coding (Theorems `thm:homoclinic-horseshoe`, `thm:hyperbolic-coding`)
 -/
 
 open Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

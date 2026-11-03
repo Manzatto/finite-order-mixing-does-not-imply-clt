@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.Defs
+module
+public import FiniteOrderMixing.Realisation.Defs
 
 /-!
 # Transporting the symbolic process through a horseshoe coding (Lemma `lem:transfer`)
@@ -16,6 +17,8 @@ Let `cod : Σ → X` code a two-symbol horseshoe of `T`, let `ν` be the measure
 -/
 
 open MeasureTheory ProbabilityTheory Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Stationarity
-import FiniteOrderMixing.Mixing
+module
+public import FiniteOrderMixing.Stationarity
+public import FiniteOrderMixing.Mixing
 
 /-!
 # Finite dependence of the nested marker sets (Proposition `prop:hierarchy-dependence`)
@@ -17,6 +18,8 @@ the induction hypothesis applies.
 -/
 
 open MeasureTheory ProbabilityTheory Finset
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

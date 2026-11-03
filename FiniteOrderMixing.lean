@@ -1,21 +1,22 @@
-import FiniteOrderMixing.Basic
-import FiniteOrderMixing.Cited
-import FiniteOrderMixing.Statements
-import FiniteOrderMixing.Avg
-import FiniteOrderMixing.Bias
-import FiniteOrderMixing.Hierarchy
-import FiniteOrderMixing.BlockLaws
-import FiniteOrderMixing.LevelExp
-import FiniteOrderMixing.Locality
-import FiniteOrderMixing.Limit
-import FiniteOrderMixing.Properties
-import FiniteOrderMixing.Mixing
-import FiniteOrderMixing.Moment
-import FiniteOrderMixing.Symbolic
-import FiniteOrderMixing.Selection
-import FiniteOrderMixing.Construction
-import FiniteOrderMixing.Stationarity
-import FiniteOrderMixing.Dependence
-import FiniteOrderMixing.HierarchyLaw
-import FiniteOrderMixing.TheoremC
-import FiniteOrderMixing.Realisation
+module
+public import FiniteOrderMixing.Basic
+public import FiniteOrderMixing.Cited
+public import FiniteOrderMixing.Statements
+public import FiniteOrderMixing.Avg
+public import FiniteOrderMixing.Bias
+public import FiniteOrderMixing.Hierarchy
+public import FiniteOrderMixing.BlockLaws
+public import FiniteOrderMixing.LevelExp
+public import FiniteOrderMixing.Locality
+public import FiniteOrderMixing.Limit
+public import FiniteOrderMixing.Properties
+public import FiniteOrderMixing.Mixing
+public import FiniteOrderMixing.Moment
+public import FiniteOrderMixing.Symbolic
+public import FiniteOrderMixing.Selection
+public import FiniteOrderMixing.Construction
+public import FiniteOrderMixing.Stationarity
+public import FiniteOrderMixing.Dependence
+public import FiniteOrderMixing.HierarchyLaw
+public import FiniteOrderMixing.TheoremC
+public import FiniteOrderMixing.Realisation

@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.CatHorseshoe
+module
+public import FiniteOrderMixing.Realisation.CatHorseshoe
 
 /-!
 # The square of the cat map is real-analytic and Anosov
@@ -10,6 +11,8 @@ line by `rc`, and its inverse derivative contracts the unstable line by the same
 -/
 
 open Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

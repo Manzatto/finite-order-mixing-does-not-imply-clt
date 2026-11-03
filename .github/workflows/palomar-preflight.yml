@@ -1,0 +1,36 @@
+name: Palomar preflight
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: Full 40-character commit SHA to preflight
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  request-id:
+    runs-on: ubuntu-latest
+    outputs:
+      id: ${{ steps.make.outputs.id }}
+    steps:
+      - id: make
+        shell: bash
+        run: |
+          id="$(printf '%s' "$GITHUB_RUN_ID" | sha256sum | cut -c1-12)"
+          echo "id=$id" >> "$GITHUB_OUTPUT"
+
+  preflight:
+    needs: request-id
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+    with:
+      repository: ${{ github.repository }}
+      commit: ${{ inputs.commit }}
+      pipeline_commit: 14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+      request_id: ${{ needs.request-id.outputs.id }}
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'

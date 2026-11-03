@@ -1,5 +1,6 @@
-import FiniteOrderMixing.Realisation.WanderDeriv
-import FiniteOrderMixing.Realisation.RiemannC1
+module
+public import FiniteOrderMixing.Realisation.WanderDeriv
+public import FiniteOrderMixing.Realisation.RiemannC1
 
 /-!
 # Uniformly hyperbolic sets
@@ -14,6 +15,8 @@ uniformly bounded with their inverses, the derivative cocycle of `T` is `diag(3^
 -/
 
 open Set Filter Topology Manifold Bundle
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 

@@ -1,6 +1,7 @@
-import FiniteOrderMixing.TheoremA
-import FiniteOrderMixing.TheoremB
-import FiniteOrderMixing.TheoremC
+module
+public import FiniteOrderMixing.TheoremA
+public import FiniteOrderMixing.TheoremB
+public import FiniteOrderMixing.TheoremC
 
 #print axioms FiniteOrderMixing.theoremA
 #print axioms FiniteOrderMixing.theoremB

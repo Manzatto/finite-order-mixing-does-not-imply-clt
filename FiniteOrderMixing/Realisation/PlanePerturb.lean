@@ -1,4 +1,5 @@
-import FiniteOrderMixing.Realisation.PlaneDiffeo
+module
+public import FiniteOrderMixing.Realisation.PlaneDiffeo
 
 /-!
 # Infinitely many small bump perturbations
@@ -11,6 +12,8 @@ sum is small.  On the inner ball of the `k`-th bump the map is the translation b
 -/
 
 open Set Filter Topology
+
+@[expose] public section
 
 namespace FiniteOrderMixing
 
