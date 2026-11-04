@@ -10,3 +10,11 @@ scope = "leanprover-community"
 
 [[lean_lib]]
 name = "FiniteOrderMixing"
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]
