@@ -179,7 +179,7 @@ theorem sum_snoc (x : Word) : ∑ a : Fin 4, P (x ++ [a]) = P x := by
           refine List.isChain_append.2 ⟨hx, by simp, ?_⟩
           intro u hu v hv
           simp [hxdef] at hu hv
-          rw [← hu, ← hv]; exact fun e => hac (by first | exact e | exact e.symm)
+          rw [← hu, ← hv]; exact fun e => hac e.symm
         have := P_rec hpr (by simp)
         rw [show (x ++ [a]).length = m + 1 + 1 by simp [hxl]] at this
         push_cast at this
