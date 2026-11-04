@@ -221,9 +221,9 @@ def IsHyperbolicSet {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
         ‖v‖ ≤ C * ρ ^ n * ‖mfderiv I I (T^[n]) x v‖)
 
 def IsHyperbolicHorseshoe {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
-    [MeasurableSpace E] {H : Type*} [TopologicalSpace H]
+    {H : Type*} [TopologicalSpace H]
     (I : ModelWithCorners ℝ E H) {M : Type*} [MetricSpace M] [ChartedSpace H M]
-    [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)] [MeasurableSpace M]
+    [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
     (T : M → M) (Λ : Set M) : Prop :=
   IsTwoSymbolHorseshoe T Λ ∧ IsHyperbolicSet I T Λ
 
