@@ -243,7 +243,8 @@ noncomputable def dSupNorm {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E
     [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
     (f : M → ℝ) : ℝ := ⨆ x, ‖mfderiv I 𝓘(ℝ, ℝ) f x‖
 
-noncomputable def supNorm {M : Type*} (f : M → ℝ) : ℝ := ⨆ x, |f x|
+universe u_3 in
+noncomputable def supNorm {M : Type u_3} (f : M → ℝ) : ℝ := ⨆ x, |f x|
 
 noncomputable def c1Norm {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
