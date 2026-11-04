@@ -26,7 +26,7 @@ sources:
       - "Bernat Bassols Cornudella"
       - "Matheus M. Castro"
     id: "arXiv:2610.17162"
-    type: "article"
+    type: "paper"
     location: "https://arxiv.org/abs/2610.17162"
     relationship: "formalizes"
     license: "CC BY-NC-ND 4.0"
@@ -95,6 +95,16 @@ automation:
         spend_usd: "not tracked"
         hardware: "local machine"
       prompting_notes: "Assisted with registry preparation, not proof development."
+    - method: "agent"
+      models:
+        - "OpenAI GPT-6 (Codex)"
+      framework: "OpenAI Codex"
+      tool_setup: >-
+        Audited submission readiness, corrected the independent Challenge's
+        implicit parameters and auxiliary-proof cache boundaries, and ran the
+        local and Palomar mechanical checks. No mathematical proof was authored
+        or changed in this submission-preparation step.
+      prompting_notes: "Repository readiness checks and Palomar submission."
   spend_usd: "not tracked"
   notes: >-
     The paper discloses the ChatGPT use above and states that the authors take

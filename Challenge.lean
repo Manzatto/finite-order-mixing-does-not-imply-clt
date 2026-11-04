@@ -7,6 +7,11 @@ public import Mathlib
 
 This file restates the project-local statement vocabulary needed for Theorems A, B, and C.
 It imports Mathlib only; the proof development remains in the project modules.
+
+The `run_cmd` lines reset Lean's local auxiliary-lemma cache at the original source-module
+boundaries. Without these resets, Lean shares generated proof helpers across unrelated
+statements in this single file, while the separately compiled source modules do not.
+The resets do not change declarations, axioms, notation, or kernel checking.
 -/
 
 open MeasureTheory ProbabilityTheory Filter Topology Manifold Bundle
@@ -65,6 +70,8 @@ def WindowsSeparated {s : ℕ} (K : ℕ) (a b : Fin s → ℤ) : Prop :=
 
 def window (a b : ℤ) (w : Config) : Finset.Icc a b → Bool := fun j => w j
 
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
+
 def HolderObs (θ : ℝ) : (Config → ℝ) → ℝ → Prop := HolderBound θ
 
 structure SymbolicProperties (R : ℕ) (ν : Measure Config) : Prop where
@@ -86,6 +93,8 @@ structure SymbolicProperties (R : ℕ) (ν : Measure Config) : Prop where
         -∫ w, ∏ i, Z (n i) w ∂ν
   notMixingL : ∀ θ : ℝ, 0 < θ → θ < 1 →
     ¬ ExpMixingOrder ν shift (HolderObs θ) (2 * R + 2)
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 abbrev Torus := UnitAddTorus (Fin 2)
 
@@ -124,6 +133,8 @@ def IsUniformlyHyperbolicTorus (T : Equiv.Perm Torus) (Λ : Set Torus) : Prop :=
   ∃ L : TorusVector ≃L[ℝ] TorusVector,
     TorusLinearCoordinates T L ∧ TorusLinearCoordinates (T⁻¹ : Equiv.Perm Torus) L.symm ∧
     TorusHyperbolicLift L Λ
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 def LipBound {X : Type*} [PseudoMetricSpace X] (f : X → ℝ) (A : ℝ) : Prop :=
   (∀ x, |f x| ≤ A) ∧ ∀ x y, |f x - f y| ≤ A * dist x y
@@ -195,6 +206,8 @@ structure TorusRealisation (k₀ : ℕ) (Λ : Set Torus) (f₀ : Torus → ℝ) 
           fun x => g x - ∫ y, g y ∂μ)) ∧
     ∃ g : Torus → ℝ, IsRealTrigPoly g ∧ C1Bound (g - f₀) δ
 
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
+
 def TheoremA : Prop :=
   ∃ k₀ : ℕ, 2 ≤ k₀ ∧ IsAnalyticAnosovTorus (catMap ^ k₀) ∧
     ∃ Λ : Set Torus,
@@ -202,6 +215,8 @@ def TheoremA : Prop :=
       IsUniformlyHyperbolicTorus (catMap ^ k₀) Λ ∧
       ∃ f₀ : Torus → ℝ, ContDiff ℝ (⊤ : ℕ∞) (torusLift f₀) ∧
         ∀ R : ℕ, 2 ≤ R → ∃ μ : Measure Torus, TorusRealisation k₀ Λ f₀ R μ
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 def IsHyperbolicSet {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
@@ -220,38 +235,31 @@ def IsHyperbolicSet {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
       (∀ x ∈ Λ, ∀ n : ℕ, ∀ v ∈ Eu x,
         ‖v‖ ≤ C * ρ ^ n * ‖mfderiv I I (T^[n]) x v‖)
 
-def IsHyperbolicHorseshoe {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
-    {H : Type*} [TopologicalSpace H]
-    (I : ModelWithCorners ℝ E H) {M : Type*} [MetricSpace M] [ChartedSpace H M]
-    [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
-    (T : M → M) (Λ : Set M) : Prop :=
-  IsTwoSymbolHorseshoe T Λ ∧ IsHyperbolicSet I T Λ
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 noncomputable def dSupNorm {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
-    {M : Type*} [TopologicalSpace M] [ChartedSpace H M]
+    {M : Type*} [MetricSpace M] [ChartedSpace H M]
     [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
     (f : M → ℝ) : ℝ := ⨆ x, ‖mfderiv I 𝓘(ℝ, ℝ) f x‖
 
-noncomputable def supNorm {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
-    {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
-    {M : Type*} [TopologicalSpace M] [ChartedSpace H M]
-    [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
-    (f : M → ℝ) : ℝ := ⨆ x, |f x|
+noncomputable def supNorm {M : Type*} (f : M → ℝ) : ℝ := ⨆ x, |f x|
 
 noncomputable def c1Norm {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
-    {M : Type*} [TopologicalSpace M] [ChartedSpace H M]
+    {M : Type*} [MetricSpace M] [ChartedSpace H M]
     [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
-    (f : M → ℝ) : ℝ := supNorm I f + dSupNorm I f
+    (f : M → ℝ) : ℝ := supNorm f + dSupNorm I f
 
 def C1BoundM {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     {H : Type*} [TopologicalSpace H] (I : ModelWithCorners ℝ E H)
-    {M : Type*} [TopologicalSpace M] [ChartedSpace H M]
+    {M : Type*} [MetricSpace M] [ChartedSpace H M]
     [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
     (f : M → ℝ) (A : ℝ) : Prop :=
   ContMDiff I 𝓘(ℝ, ℝ) 1 f ∧ ∃ a b : ℝ, (∀ x, |f x| ≤ a) ∧
     (∀ x, ‖mfderiv I 𝓘(ℝ, ℝ) f x‖ ≤ b) ∧ a + b ≤ A
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 def IsSmoothVolume {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     [MeasurableSpace E] {H : Type*} [TopologicalSpace H]
@@ -263,6 +271,15 @@ def IsSmoothVolume {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     (m.restrict (extChartAt I x).source).map (extChartAt I x) =
       (lam.restrict (extChartAt I x).target).withDensity
         (fun e => ENNReal.ofReal (ρ e))
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
+
+def IsHyperbolicHorseshoe {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    {H : Type*} [TopologicalSpace H]
+    (I : ModelWithCorners ℝ E H) {M : Type*} [MetricSpace M] [ChartedSpace H M]
+    [RiemannianBundle (fun (x : M) ↦ TangentSpace I x)]
+    (T : M → M) (Λ : Set M) : Prop :=
+  IsTwoSymbolHorseshoe T Λ ∧ IsHyperbolicSet I T Λ
 
 structure PhysicalRealisation {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
     [MeasurableSpace E] {H : Type*} [TopologicalSpace H]
@@ -287,6 +304,8 @@ structure PhysicalRealisation {E : Type*} [NormedAddCommGroup E] [NormedSpace �
       (fun _ => ∫ y, g y ∂μ) atTop W) ∧ W ⊆ statBasin T μ
   basinPos : ∀ m : Measure M, m.IsOpenPosMeasure → 0 < m (statBasin T μ)
   physical : ∀ m : Measure M, IsSmoothVolume I m → 0 < m (statBasin T μ)
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 @[instance_reducible] noncomputable def boundedRiemannianMetric
     {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
@@ -320,6 +339,8 @@ structure PhysicalRealisation {E : Type*} [NormedAddCommGroup E] [NormedSpace �
   exact EMetricSpace.toMetricSpace fun x y =>
     ne_top_of_le_ne_top (by norm_num : (2 : ℝ≥0∞) ≠ ⊤) (min_le_left _ _)
 
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
+
 def TheoremB {E' : Type*} [NormedAddCommGroup E'] [NormedSpace ℝ E']
     {H' : Type*} [TopologicalSpace H'] (J : ModelWithCorners ℝ E' H')
     {N : Type*} [TopologicalSpace N] [T2Space N] [ChartedSpace H' N]
@@ -332,6 +353,8 @@ def TheoremB {E' : Type*} [NormedAddCommGroup E'] [NormedSpace ℝ E']
     letI := boundedRiemannianMetric J N
     ∃ (T : N ≃ₘ^∞⟮J, J⟯ N) (Λ : Set N) (μ : Measure N) (f₀ : N → ℝ),
       IsHyperbolicHorseshoe J T Λ ∧ PhysicalRealisation J T Λ μ f₀ R
+
+run_cmd Lean.modifyEnv fun env => Lean.Meta.auxLemmasExt.setState env {}
 
 def TheoremC : Prop :=
   ∀ R : ℕ, 2 ≤ R → ∃ ν : Measure Config, SymbolicProperties R ν
