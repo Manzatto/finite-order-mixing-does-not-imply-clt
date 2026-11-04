@@ -113,9 +113,13 @@ def catMap : Equiv.Perm Torus where
   toFun x := ![2 • x 0 + x 1, x 0 + x 1]
   invFun x := ![x 0 - x 1, -x 0 + 2 • x 1]
   left_inv x := by
-    funext i; fin_cases i <;> simp [two_nsmul]; abel
+    funext i; fin_cases i <;>
+      simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
+        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel
   right_inv x := by
-    funext i; fin_cases i <;> simp [two_nsmul] <;> abel
+    funext i; fin_cases i <;>
+      simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
+        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel
 
 /-- The properties of Theorem A for `T = A^{k₀}`, the horseshoe `Λ`, the observable `f₀`, the
 order `R` and the measure `μ`. -/

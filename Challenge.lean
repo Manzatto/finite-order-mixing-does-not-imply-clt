@@ -191,10 +191,13 @@ def catMap : Equiv.Perm Torus where
   toFun x := ![2 • x 0 + x 1, x 0 + x 1]
   invFun x := ![x 0 - x 1, -x 0 + 2 • x 1]
   left_inv x := by
-    funext i; fin_cases i <;> simp [two_nsmul]; abel
+    funext i; fin_cases i <;>
+      simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
+        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel
   right_inv x := by
-    funext i
-    fin_cases i <;> simp [two_nsmul] <;> abel
+    funext i; fin_cases i <;>
+      simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
+        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel
 
 structure TorusRealisation (k₀ : ℕ) (Λ : Set Torus) (f₀ : Torus → ℝ) (R : ℕ)
     (μ : Measure Torus) : Prop extends

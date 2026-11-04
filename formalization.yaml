@@ -101,9 +101,10 @@ automation:
       framework: "OpenAI Codex"
       tool_setup: >-
         Audited submission readiness, corrected the independent Challenge's
-        implicit parameters and auxiliary-proof cache boundaries, and ran the
-        local and Palomar mechanical checks. No mathematical proof was authored
-        or changed in this submission-preparation step.
+        implicit parameters and auxiliary-proof cache boundaries, made the cat-map
+        inverse-law proof scripts use an explicit simplification list in both
+        the source and Challenge, and ran local and Palomar mechanical checks.
+        The mathematical statements and main proof constructions were unchanged.
       prompting_notes: "Repository readiness checks and Palomar submission."
   spend_usd: "not tracked"
   notes: >-
