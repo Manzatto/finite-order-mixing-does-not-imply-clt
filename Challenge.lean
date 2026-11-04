@@ -102,6 +102,8 @@ abbrev TorusVector := Fin 2 → ℝ
 
 def torusProj (x : TorusVector) : Torus := fun i => (x i : UnitAddCircle)
 
+-- Use the same scalar normed-space instance as the source module.
+attribute [local instance 1100] NormedField.toNormedSpace in
 structure TorusLinearCoordinates (T : Torus → Torus)
     (L : TorusVector ≃L[ℝ] TorusVector) : Prop where
   projection : ∀ x, T (torusProj x) = torusProj (L x)
@@ -193,11 +195,11 @@ def catMap : Equiv.Perm Torus where
   left_inv x := by
     funext i; fin_cases i <;>
       simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
-        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel
+        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel_nf <;> rfl
   right_inv x := by
     funext i; fin_cases i <;>
       simp only [Matrix.cons_val_zero, Matrix.cons_val_one,
-        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel
+        Matrix.cons_val_zero', Matrix.cons_val_succ', two_nsmul] <;> abel_nf <;> rfl
 
 structure TorusRealisation (k₀ : ℕ) (Λ : Set Torus) (f₀ : Torus → ℝ) (R : ℕ)
     (μ : Measure Torus) : Prop extends
