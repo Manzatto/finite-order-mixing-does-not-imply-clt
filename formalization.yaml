@@ -85,7 +85,8 @@ automation:
         hardware: "not reported"
       prompting_notes: "not reported"
     - method: "agent"
-      models: []
+      models:
+        - "OpenAI ChatGPT 6.0 (Luna)"
       framework: "Copilot SDK in VS Code"
       tool_setup: >-
         Used for Palomar submission packaging and statement wrappers; it did
@@ -109,8 +110,7 @@ automation:
   spend_usd: "not tracked"
   notes: >-
     The paper discloses the ChatGPT use above and states that the authors take
-    full responsibility for the mathematical statements and proofs. This
-    assistant's contribution is limited to registry packaging and metadata.
+    full responsibility for the mathematical statements and proofs.
 
 fidelity:
   divergences: >-
